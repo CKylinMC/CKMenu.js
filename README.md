@@ -1,5 +1,8 @@
 # CKMenu.js
+![CKMenu](preview.png)
+
 一个简单的网页右键菜单js，练手项目。
+
 在Chrome浏览器等支持`backdrop-filter`属性的浏览器中可以有模糊背景效果。
 
 ## 用法
