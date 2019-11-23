@@ -299,8 +299,6 @@ var CKMenu = (function () {
             document.body.appendChild(e);
             var safey = window.innerHeight - e.offsetHeight;
             if (y > safey) {
-                console.log(safey + (e.offsetHeight / 3));
-                console.log(y);
                 if (safey + (e.offsetHeight / 3) < y) {
                     y -= e.offsetHeight;
                 }
