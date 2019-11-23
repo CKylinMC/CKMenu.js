@@ -299,14 +299,16 @@ var CKMenu = (function () {
             document.body.appendChild(e);
             var safey = window.innerHeight - e.offsetHeight;
             if (y > safey) {
-                if (y > safey - y * 2) {
+                console.log(safey + (e.offsetHeight / 3));
+                console.log(y);
+                if (safey + (e.offsetHeight / 3) < y) {
                     y -= e.offsetHeight;
                 }
                 else y = safey;
             }
             var safex = window.innerWidth - e.offsetWidth;
             if (x > safex) {
-                if (x > safex - x * 2) {
+                if (safex + (e.offsetWidth / 3) < x) {
                     x -= e.offsetWidth;
                 }
                 else x = safex;
