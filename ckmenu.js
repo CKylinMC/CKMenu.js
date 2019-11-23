@@ -1,6 +1,6 @@
 /**
-	CKMenu.js
-	@author CKylinMC
+    CKMenu.js
+    @author CKylinMC
     @version 1.1
     @description 一个简单的页面右键菜单js
 */
@@ -280,6 +280,7 @@ var CKMenu = (function () {
             e.id = this.getMenuFrameName();
             e.className = "CKMenu";
             e.appendChild(this.render());
+            e.oncontextmenu = (eve) => eve.preventDefault();
             if(!ev&&!y){
                 // console.log("NON-PARAM");
                 ev = 0;
@@ -288,16 +289,30 @@ var CKMenu = (function () {
                 ev.preventDefault();
                 // console.log("EVENT-PARAM");
                 // console.log(event);
-                window.lastEvent = event;
+                // window.lastEvent = event;
                 var x = ev.clientX;
                 y = ev.clientY;
             }else{
                 // console.log("STATIC-PARAM");
                 var x = ev;
             }
+            document.body.appendChild(e);
+            var safey = window.innerHeight - e.offsetHeight;
+            if (y > safey) {
+                if (y > safey - y * 2) {
+                    y -= e.offsetHeight;
+                }
+                else y = safey;
+            }
+            var safex = window.innerWidth - e.offsetWidth;
+            if (x > safex) {
+                if (x > safex - x * 2) {
+                    x -= e.offsetWidth;
+                }
+                else x = safex;
+            }
             e.style.top = y+"px";
             e.style.left = x+"px";
-            document.body.appendChild(e);
             // console.log(e);
             return e;
         };
